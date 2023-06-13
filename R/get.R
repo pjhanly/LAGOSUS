@@ -77,11 +77,11 @@ between R sessions. \n")
     # limno_dir        <- get_lagos_module(limno_base_edi, limno_base_pasta,
     #                                      "limno", limno_overwrite)
 
-    # message("Downloading the 'geo' module ...")
-    # geo_base_edi   <- paste0(edi_baseurl, c("edi.99.5"))
-    # geo_base_pasta <- paste0(pasta_baseurl, "99/5")
-    # geo_dir        <- get_lagos_module(geo_base_edi, geo_base_pasta,
-    #                                    "geo", geo_overwrite)    
+    message("Downloading the 'geo' module ...")
+    geo_base_edi   <- paste0(edi_baseurl, c("edi.1136.2"))
+    geo_base_pasta <- paste0(pasta_baseurl, "1136/2")
+    geo_dir        <- get_lagos_module(geo_base_edi, geo_base_pasta,
+                                       "geo", geo_overwrite)    
 
   dir.create(dest_folder, showWarnings = FALSE)
 
@@ -94,12 +94,14 @@ between R sessions. \n")
                 depth_folder=depth_dir,
                 depth_overwrite=depth_overwrite,
                 limno_folder = NA,
-                geo_folder   = NA,
+                geo_version = geo_version,
+                geo_overwrite = geo_overwrite,
+                geo_folder   = geo_dir,
                 dest_folder  = dest_folder
                 )
 
   return(invisible(list(locus_folder = locus_dir,
-                        depth_folder=depth_dir,
+                        depth_folder = depth_dir,
                         limno_folder = NA,
-                        geo_folder   = NA)))
+                        geo_folder   = geo_dir)))
 }
