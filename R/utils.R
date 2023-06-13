@@ -78,7 +78,7 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, parse_units =
 #' @importFrom curl curl_download
 get_if_not_exists <- function(url, destfile, overwrite){
   if(!file.exists(destfile) | overwrite){
-    curl::curl_download(url, destfile)
+    curl::curl_download(url, destfile, quiet = FALSE)
   }else{
     message(paste0("A local copy of ", url, " already exists on disk"))
   }
